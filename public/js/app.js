@@ -2165,6 +2165,9 @@ module.exports = {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 var menuItems = document.querySelectorAll('nav ul li');
+var nav = document.querySelector('nav ul');
+var menuBackground = document.querySelector('.menu-background');
+var arrow = document.querySelector('.arrow');
 menuItems.forEach(function (menuItem) {
   return menuItem.addEventListener('mouseenter', handleEnter);
 });
@@ -2175,19 +2178,22 @@ menuItems.forEach(function (menuItem) {
 function handleEnter() {
   var menu = this.querySelector('.menu');
   menu.classList.add('menu-enter');
-  menu.classList.remove('menu-leave', 'menu-leave-active');
   setTimeout(function () {
     return menu.classList.add('menu-enter-active');
   }, 100);
+  var menuCoords = menu.getBoundingClientRect();
+  var navCoords = nav.getBoundingClientRect();
+  menuBackground.classList.add('open');
+  arrow.classList.add('open');
+  menuBackground.style.setProperty('transform', "\n        translate(".concat(menuCoords.left, "px, ").concat(menuCoords.top + window.scrollY, "px)\n        scaleX(").concat(menuCoords.width / 100, ")\n        scaleY(").concat(menuCoords.height / 100, ")\n    "));
+  arrow.style.setProperty('transform', "\n        translate(".concat(menuCoords.left + menuCoords.width / 2 - 7, "px, ").concat(menuCoords.top + navCoords.top, "px)\n        rotate(45deg) translateY(-50%)\n    "));
 }
 
 function handleLeave() {
   var menu = this.querySelector('.menu');
   menu.classList.remove('menu-enter', 'menu-enter-active');
-  menu.classList.add('menu-leave');
-  setTimeout(function () {
-    return menu.classList.add('menu-leave-active');
-  }, 100);
+  menuBackground.classList.remove('open');
+  arrow.classList.remove('open');
 }
 
 /***/ }),

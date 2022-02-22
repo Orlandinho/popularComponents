@@ -14,5 +14,8 @@
         <header>
             <x-navbar />
         </header>
+        <main>
+            <x-event-table />
+        </main>
     </body>
 </html>
