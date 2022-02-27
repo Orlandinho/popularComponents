@@ -1,4 +1,11 @@
 require('./bootstrap');
+import { createApp } from 'vue';
+import EventSlot from './components/EventSlot';
+import EventSlotEmpty from "./components/EventSlotEmpty";
+const app = createApp({})
+.component('EventSlotEmpty', EventSlotEmpty)
+.component('EventSlot', EventSlot)
+.mount('#app')
 
 const menuItems = document.querySelectorAll('nav ul li')
 const nav = document.querySelector('nav ul')
@@ -29,7 +36,6 @@ function handleEnter() {
         translate(${menuCoords.left + (menuCoords.width / 2) - 7}px, ${menuCoords.top + navCoords.top}px)
         rotate(45deg) translateY(-50%)
     `)
-
 }
 
 function handleLeave() {
