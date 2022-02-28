@@ -19380,17 +19380,18 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Modal: _Modal__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  props: ['title', 'time', 'description', 'widthClass', 'colorClass', 'colorHoverClass', 'borderColorClass', 'watchDescription'],
+  props: ['title', 'time', 'description', 'widthClass', 'colorClass', 'bgColor', 'borderColor', 'watchDescription', 'hoverColor'],
   provide: function provide() {
     return {
       description: this.description,
-      watchDescription: this.watchDescription
+      watchDescription: this.watchDescription,
+      title: this.title,
+      colorClass: this.colorClass,
+      bgColor: this.bgColor,
+      borderColor: this.borderColor,
+      hoverColor: this.hoverColor,
+      time: this.time
     };
-  },
-  computed: {
-    buttonClass: function buttonClass() {
-      return "event-block text-sm overflow-hidden text-left whitespace-nowrap items-center ".concat(this.widthClass, " ").concat(this.colorHoverClass, " ").concat(this.colorClass, " ").concat(this.borderColorClass);
-    }
   }
 });
 
@@ -19430,7 +19431,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Modal",
-  inject: ['description', 'watchDescription'],
+  inject: ['description', 'watchDescription', 'title', 'colorClass', 'bgColor', 'hoverColor', 'borderColor', 'time'],
   components: {
     TransitionRoot: _headlessui_vue__WEBPACK_IMPORTED_MODULE_1__.TransitionRoot,
     TransitionChild: _headlessui_vue__WEBPACK_IMPORTED_MODULE_1__.TransitionChild,
@@ -19477,7 +19478,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Modal = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Modal");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($options.buttonClass),
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)("event-block text-sm overflow-hidden text-left whitespace-nowrap items-center ".concat(this.hoverColor, " ").concat(this.bgColor, " ").concat(this.widthClass)),
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return _ctx.$refs.isOpen.openModal();
     })
@@ -19548,20 +19549,21 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_4 = {
-  "class": "inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl"
+  "class": "text-sm mt-4 text-gray-200"
 };
-
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Payment successful ");
-
+var _hoisted_5 = {
+  "class": "text-sm mt-4 text-gray-200"
+};
 var _hoisted_6 = {
-  "class": "mt-2"
-};
-var _hoisted_7 = {
-  "class": "text-sm text-gray-500"
-};
-var _hoisted_8 = {
   "class": "mt-4"
 };
+var _hoisted_7 = {
+  "class": "text-sm text-gray-200"
+};
+
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Watch it on ");
+
+var _hoisted_9 = ["innerHTML"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_DialogOverlay = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DialogOverlay");
 
@@ -19595,7 +19597,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           }, {
             "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
               return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DialogOverlay, {
-                "class": "fixed inset-0"
+                "class": "fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
               })];
             }),
             _: 1
@@ -19611,25 +19613,41 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             "leave-to": "opacity-0 scale-95"
           }, {
             "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-              return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DialogTitle, {
+              return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+                "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)("bg-gray-900 text-gray-200 inline-block w-full max-w-md p-6 my-8 overflow-hidden border ".concat($options.borderColor, " text-left align-middle transition-all transform shadow-xl rounded"))
+              }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+                onClick: _cache[0] || (_cache[0] = function () {
+                  return $setup.closeModal && $setup.closeModal.apply($setup, arguments);
+                }),
+                "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)("absolute top-3 right-1 ".concat($options.colorClass))
+              }, " x ", 2
+              /* CLASS */
+              ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DialogTitle, {
                 as: "h3",
-                "class": "text-lg font-medium leading-6 text-gray-900"
+                "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)("text-2xl border-l-4 ".concat($options.borderColor, " pl-3 font-medium mb-6 text-gray-200"))
               }, {
                 "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-                  return [_hoisted_5];
+                  return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.title), 1
+                  /* TEXT */
+                  )];
                 }),
                 _: 1
                 /* STABLE */
 
-              }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.description), 1
+              }, 8
+              /* PROPS */
+              , ["class"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.description), 1
               /* TEXT */
-              )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-                type: "button",
-                "class": "inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500",
-                onClick: _cache[0] || (_cache[0] = function () {
-                  return $setup.closeModal && $setup.closeModal.apply($setup, arguments);
-                })
-              }, " Got it, thanks! ")])])];
+              ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.time), 1
+              /* TEXT */
+              )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+                innerHTML: $options.watchDescription,
+                "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)("hover:underline ".concat($options.colorClass))
+              }, null, 10
+              /* CLASS, PROPS */
+              , _hoisted_9)])])], 2
+              /* CLASS */
+              )];
             }),
             _: 1
             /* STABLE */
