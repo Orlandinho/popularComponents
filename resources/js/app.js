@@ -2,9 +2,11 @@ require('./bootstrap');
 import { createApp } from 'vue';
 import EventSlot from './components/EventSlot';
 import EventSlotEmpty from "./components/EventSlotEmpty";
+import Tabs from "./components/Tabs";
 const app = createApp({})
 .component('EventSlotEmpty', EventSlotEmpty)
 .component('EventSlot', EventSlot)
+.component('Tabs', Tabs)
 .mount('#app')
 
 const menuItems = document.querySelectorAll('nav ul li')

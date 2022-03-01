@@ -1,7 +1,7 @@
-<section>
+<section id="app">
     <div class="container mx-auto px-4 xl:px-48 my-8">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto assumenda cupiditate deleniti earum eveniet ex explicabo illum mollitia omnis, reiciendis tempore vitae? Dolor, harum ipsum minus odio quam tempore?
-        <div id="app" class="flex my-12">
+        <Tabs></Tabs>
+        <div class="flex my-4">
             <div class="w-40 bg-gray-900 text-white text-sm divide-y divide-white border-r border-white">
                 <div class="h-10">&nbsp;</div>
                 <div class="px-4 py-2 h-16">Bethesda Global</div>

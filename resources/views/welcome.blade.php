@@ -12,7 +12,6 @@
     </head>
     <body>
         <header>
-            <x-navbar />
         </header>
         <main>
             <x-event-table />
