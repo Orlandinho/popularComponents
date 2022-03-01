@@ -1,13 +1,21 @@
 require('./bootstrap');
+
+/*------ Vue Components Registration ------*/
+
 import { createApp } from 'vue';
 import EventSlot from './components/EventSlot';
 import EventSlotEmpty from "./components/EventSlotEmpty";
 import Tabs from "./components/Tabs";
+import Visible from "./components/Visible";
 const app = createApp({})
+app
 .component('EventSlotEmpty', EventSlotEmpty)
 .component('EventSlot', EventSlot)
 .component('Tabs', Tabs)
+.component('Visible', Visible )
 .mount('#app')
+
+/*---------------- Vanilla Javascript ------------------*/
 
 const menuItems = document.querySelectorAll('nav ul li')
 const nav = document.querySelector('nav ul')

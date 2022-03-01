@@ -14,7 +14,7 @@
         <header>
         </header>
         <main>
-            <x-event-table />
+            <x-conditional-visibility />
         </main>
     </body>
 </html>
