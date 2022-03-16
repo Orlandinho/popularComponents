@@ -7,12 +7,14 @@ import EventSlot from './components/EventSlot';
 import EventSlotEmpty from "./components/EventSlotEmpty";
 import Tabs from "./components/Tabs";
 import Visible from "./components/Visible";
+import Modal2 from "./components/Modal2";
 const app = createApp({})
 app
 .component('EventSlotEmpty', EventSlotEmpty)
 .component('EventSlot', EventSlot)
 .component('Tabs', Tabs)
-.component('Visible', Visible )
+.component('Visible', Visible)
+.component('Modal2', Modal2)
 .mount('#app')
 
 /*---------------- Vanilla Javascript ------------------*/
