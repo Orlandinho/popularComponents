@@ -3,19 +3,37 @@ require('./bootstrap');
 /*------ Vue Components Registration ------*/
 
 import { createApp } from 'vue';
+import Modal2 from './plugins/modals/ModalPlugin';
 import EventSlot from './components/EventSlot';
 import EventSlotEmpty from "./components/EventSlotEmpty";
 import Tabs from "./components/Tabs";
 import Visible from "./components/Visible";
-import Modal2 from "./components/Modal2";
-const app = createApp({})
-app
-.component('EventSlotEmpty', EventSlotEmpty)
-.component('EventSlot', EventSlot)
-.component('Tabs', Tabs)
-.component('Visible', Visible)
-.component('Modal2', Modal2)
-.mount('#app')
+import ConfirmationDialog from "./components/ConfirmationDialog";
+import Modal from "./components/Modal";
+import ConfirmButton from "./components/ConfirmButton";
+//import Modal2 from "./components/Modal2";
+
+const app = createApp( {
+    components: {
+        EventSlot,
+        EventSlotEmpty,
+        Tabs,
+        Visible,
+        ConfirmationDialog,
+        Modal,
+        ConfirmButton
+    },
+
+    methods: {
+        confirm(message) {
+            this.$modal2.dialog(message)
+                .then(confirmed => {
+                    confirmed ? alert('Proceed') : this.$modal2.dialog('Okay, canceled')
+                })
+        }
+    }
+}).use(Modal2)
+    .mount('#app')
 
 /*---------------- Vanilla Javascript ------------------*/
 

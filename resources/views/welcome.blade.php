@@ -23,7 +23,7 @@
                     <h1 class="font-bold text-xl mb-2">Leaving so soon?</h1>
                     <p>Some text just to not let this space empty. Please, understand...</p>
                     <template v-slot:footer>
-                        <a href="#" class="px-4 rounded py-1 text-white hover:text-red-500 bg-red-500 hover:bg-white hover:border hover:border-red-500 mr-2">Cancel</a>
+                        <button @click="$modal2.hide('cancel-modal')" class="px-4 rounded py-1 text-white hover:text-red-500 bg-red-500 hover:bg-white hover:border hover:border-red-500 mr-2">Cancel</button>
                         <a href="#confirm-cancel-modal" class="px-4 rounded py-1 text-white hover:text-blue-500 bg-blue-500 hover:bg-white hover:border hover:border-blue-500">Yes</a>
                     </template>
                 </modal2>
